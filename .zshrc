@@ -84,11 +84,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='nvim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -110,6 +110,8 @@ alias l='eza -F --icons --color=always --group-directories-first'
 alias l.='eza -a | egrep "^\."'
 alias lg='lazygit'
 alias finddir="find . -type d -name "
+alias nvim="nvim --listen /tmp/nvim-server.pipe"
+alias vim="nvim --listen /tmp/nvim-server.pipe"
 
 eval "$(oh-my-posh init zsh --config ~/zshthemes/craver.omp.json)"
 
